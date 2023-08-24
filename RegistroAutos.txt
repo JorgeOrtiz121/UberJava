@@ -1,0 +1,10 @@
+	Los Autos resgristrados en la compania de Uber son: 
+
+
+El vehiculo seleccionado es 
+Marca del vehiculo deportivo: mazda
+Modelo deportivo: mazda
+Aforo: 2
+Precio: 1.0
+
+

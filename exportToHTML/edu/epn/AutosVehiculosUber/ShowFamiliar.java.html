@@ -1,0 +1,111 @@
+<html>
+<head>
+<title>ShowFamiliar.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #629755; font-style: italic;}
+.s3 { color: #6897bb;}
+.s4 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+ShowFamiliar.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">edu.epn.AutosVehiculosUber</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">edu.epn.Calificaciones.Desiciones</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">edu.epn.MenuUber.ShowMenu2</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">java.util.ArrayList</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.util.Date</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.util.Scanner</span><span class="s0">;</span>
+<span class="s2">/**</span>
+ <span class="s2">* Esta clase contiene de igual forma un arraylist donde contiene todos los elementos ingresados de nuestra</span>
+ <span class="s2">* clase VehiculoFamiliar</span>
+ <span class="s2">*/</span>
+<span class="s0">public class </span><span class="s1">ShowFamiliar {</span>
+    <span class="s0">static public  </span><span class="s1">ArrayList&lt;VehiculoFamiliar&gt;family=</span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">;</span>
+    <span class="s0">public static void </span><span class="s1">Family(){</span>
+        <span class="s1">Scanner intro=</span><span class="s0">new </span><span class="s1">Scanner(System.in)</span><span class="s0">;</span>
+        <span class="s1">String Destino</span><span class="s0">;</span>
+        <span class="s0">int </span><span class="s1">salir=</span><span class="s3">1</span><span class="s0">;</span>
+        <span class="s2">/**</span>
+         <span class="s2">* Se generara la impresion de nuestros elementos del arraylist para vista del usuario</span>
+         <span class="s2">*/</span>
+        <span class="s0">do</span><span class="s1">{</span>
+            <span class="s2">/**</span>
+             <span class="s2">* Gracias a la funcion for podemos imprimir toda la informacion que en la clase PerfilConductor se haya</span>
+             <span class="s2">* digitado para que se pueda visualizar en el menu del cliente</span>
+             <span class="s2">*/</span>
+            <span class="s1">System.out.println(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">--------------Disponibilidad de Autos Familiares---------------&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s3">0</span><span class="s0">; </span><span class="s1">i &lt; family.size()</span><span class="s0">; </span><span class="s1">i++) {</span>
+                <span class="s0">int </span><span class="s1">cont = i+</span><span class="s3">1</span><span class="s0">;</span>
+                <span class="s1">System.out.println(cont + </span><span class="s4">&quot; &quot; </span><span class="s1">+ family.get(i).getMarca() + </span><span class="s4">&quot;--&quot; </span><span class="s1">+ family.get(i).getModelo() + </span><span class="s4">&quot;--&quot; </span><span class="s1">+ family.get(i).isDisponible())</span><span class="s0">;</span>
+            <span class="s1">}</span>
+            <span class="s1">System.out.println(</span><span class="s4">&quot;</span><span class="s0">\n </span><span class="s4">Ingrese su eleccion de coche, caso contrario ingrese o para salir&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">System.out.println(</span><span class="s4">&quot;</span><span class="s0">\n </span><span class="s4">Selecciones su opcion&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s0">int </span><span class="s1">desicion= Desiciones.Afirmardesicion(</span><span class="s3">0</span><span class="s0">,</span><span class="s1">family.size())</span><span class="s0">;</span>
+            <span class="s2">/**</span>
+             <span class="s2">* Acorde a la desicion se podra visualizar la validez de nuestro elementos y por medio</span>
+             <span class="s2">* de la condicional if se puede regresar al menuPrincipal o seguir con el prograso del programa</span>
+             <span class="s2">*/</span>
+            <span class="s0">if</span><span class="s1">(desicion==</span><span class="s3">0</span><span class="s1">){</span>
+                <span class="s1">salir=</span><span class="s3">0</span><span class="s0">;</span>
+                <span class="s1">ShowMenu2 showMenu2=</span><span class="s0">new </span><span class="s1">ShowMenu2()</span><span class="s0">;</span>
+                <span class="s1">showMenu2.MenuEleccion()</span><span class="s0">;</span>
+                <span class="s0">break;</span>
+            <span class="s1">}</span>
+            <span class="s0">if</span><span class="s1">(desicion&gt;</span><span class="s3">0</span><span class="s1">){</span>
+                <span class="s1">VehiculoFamiliar Seleccion=family.get(desicion-</span><span class="s3">1</span><span class="s1">)</span><span class="s0">;</span>
+                <span class="s1">Seleccion.setDisponible(</span><span class="s0">true</span><span class="s1">)</span><span class="s0">;</span>
+                <span class="s1">System.out.println(</span><span class="s4">&quot;Ingrese el lugar de destino&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                <span class="s1">Destino=intro.next()</span><span class="s0">;</span>
+                <span class="s2">/**</span>
+                 <span class="s2">* Se comienza con la llamada de la funcion en donde se inicializara el conteo</span>
+                 <span class="s2">* de viaje acorde a la seccion que hemos introducido y exisitira una funcion donde se pueda</span>
+                 <span class="s2">* acabar el conteo de tiempo para asi poder sacar nuestro precio y tiempo de viaje</span>
+                 <span class="s2">*/</span>
+                <span class="s1">Date dateI = Seleccion.startToSee(</span><span class="s0">new </span><span class="s1">Date())</span><span class="s0">;</span>
+                <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s3">0</span><span class="s0">; </span><span class="s1">i &lt; </span><span class="s3">1000</span><span class="s0">; </span><span class="s1">i++) {</span>
+                    <span class="s1">System.out.println(</span><span class="s4">&quot;Viajando....&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+                <span class="s1">}</span>
+                <span class="s2">/**</span>
+                 <span class="s2">* Finalizacion del programa donde se imprimira toda la informacion que se haya introducido al comienzo</span>
+                 <span class="s2">* de este programa</span>
+                 <span class="s2">*/</span>
+                <span class="s1">System.out.println(</span><span class="s4">&quot;A llegado a &quot;</span><span class="s1">+Destino)</span><span class="s0">;</span>
+                <span class="s1">Seleccion.stopToSee(dateI</span><span class="s0">,new </span><span class="s1">Date())</span><span class="s0">;</span>
+                <span class="s1">System.out.println(</span><span class="s4">&quot;Fin del viaje &quot;</span><span class="s1">+Seleccion)</span><span class="s0">;</span>
+                <span class="s1">System.out.println(</span><span class="s4">&quot;Tiempo de viaje &quot;</span><span class="s1">+Seleccion.getTiempoViaje() + </span><span class="s4">&quot; segundos&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                <span class="s0">double </span><span class="s1">valor=Seleccion.getTiempoViaje()*Seleccion.getPrecio()* Seleccion.getAforo()</span><span class="s0">;</span>
+                <span class="s1">System.out.println(</span><span class="s4">&quot;Precio a pagar &quot;</span><span class="s1">+valor)</span><span class="s0">;</span>
+                <span class="s0">int </span><span class="s1">estrellas</span><span class="s0">;</span>
+                <span class="s2">/**</span>
+                 <span class="s2">* Se dispone a introducir una variable donde se evaluara el servicio de transporte hacia el cliente</span>
+                 <span class="s2">* donde se puede permititr maximo hasta 5 estrellas cmo sobresaliente y no se permite</span>
+                 <span class="s2">* numeros negativos</span>
+                 <span class="s2">*/</span>
+                <span class="s0">do </span><span class="s1">{</span>
+                    <span class="s1">System.out.println(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Digite como le fue en el viaje desde el 1 al 5&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                    <span class="s1">estrellas = intro.nextInt()</span><span class="s0">;</span>
+
+                    <span class="s0">if</span><span class="s1">(estrellas &lt; </span><span class="s3">1 </span><span class="s1">|| estrellas &gt; </span><span class="s3">5</span><span class="s1">){</span>
+                        <span class="s1">System.out.println(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Ingrese el numero de estrellas válidos&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                    <span class="s1">}</span>
+                <span class="s1">} </span><span class="s0">while</span><span class="s1">(estrellas &lt; </span><span class="s3">1 </span><span class="s1">|| estrellas &gt; </span><span class="s3">5</span><span class="s1">)</span><span class="s0">;</span>
+
+                <span class="s1">Seleccion.setCalificacion(estrellas)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+
+        <span class="s1">}</span><span class="s0">while </span><span class="s1">(salir!=</span><span class="s3">0</span><span class="s1">)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>

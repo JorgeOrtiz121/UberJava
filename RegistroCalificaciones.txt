@@ -1,0 +1,9 @@
+	Las calificaciones del viaje son:
+ 
+**************************************
+Marca del Vehiculo Deportivo: mazda
+Modelo del Vehiculo Deportivo: mazda
+Estrellas obtenidas: 4
+**************************************
+**************************************
+**************************************
